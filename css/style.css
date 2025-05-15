@@ -373,14 +373,15 @@ p{
   width:500px;
   height:500px;
   transform: translate(-10%,10%) rotate(var(--rotation));
+  border: 30px solid var(--black-color);
 }
 
 .main-image {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   left: 0%;
-  top: -25%;
-
+  top: -20%;
+  border: 20px solid var(--black-color);
 }  
 .slider-content img {
       width: 90px;
