@@ -10,5 +10,8 @@
     "restaurant"
   ],
   "author": "Samar Elfeky",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.6"
+  }
 }

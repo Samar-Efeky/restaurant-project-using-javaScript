@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --main-color:#dc3545;
+    --black-color:black;
+    --white-color:white;
+    --border-color:rgba(91, 91, 91, 0.91);
+    --background-color-hover:#f1f1f1;
+    --color-section:#191618;
+    --color-section-div:#1D1D1D;
+    --color-pragrah:#8E8E8E;
+    --bg-section:#15161A;
+    --star-color:#ffc107;
+    --rotation: 0deg;
+}
+
+body{
+  height: 5000px;
+}
+/* ................................. general styling start .....................................................................*/
+a{
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  color:var(--white-color);
+  display: block;
+}
+a:hover{
+  color: var(--main-color);
+}
+button{
+  background-color: var(--main-color);
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  position: relative;
+  color: var(--white-color);
+}
+button::after{
+  content: "";
+  background-color: rgba(0, 0, 0,0.3);
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  transition: all 0.4s;
+}
+button:not(#btnSearch):hover::after{
+  height: 100%;
+}
+i{
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+p{
+  font-size: 1.2rem;
+}
+.color-section{
+  background-color: var(--bg-section);
+}
+/* ................................. general styling end ......................................................................*/
+/*...................... navbar start .................................................................................*/
+.navbar-content{
+  z-index: 99;
+}
+/*================= logo =======================*/
+.logo h2{
+  font-size: 1.8rem;
+  padding-top: 1%;
+   font-family: "Tagesschrift", system-ui;
+}
+.navbar-links{
+  width: 65%;
+  display: flex;
+}
+.navbar-links:hover li a:not(.dropdown-list a){
+    transform: scale(1.5);
+    opacity: 0.1;
+    filter: blur(2px);
+  }
+.navbar-links a{
+  text-transform:capitalize;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+.navbar-links li a:not(.dropdown-list a):hover{
+   transform: scale(2);
+    opacity: 1;
+    filter: blur(0);
+    color: #fff;
+    color:var(--main-color);
+}
+.navbar-links li a.active{
+  color:var(--main-color);
+}
+.cart-numbers{
+  cursor: pointer;
+}
+.cart-numbers span{
+  transform: translate(-6%);
+}
+/*================= dropdown navbar ====================*/
+.dropdown-list {
+    visibility: hidden;
+    padding: 10px 0;
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 100;
+    transform: translate(-10%,15%);
+    transition: all 0.3s ease-out;
+} 
+.dropdown-list a{
+    padding: 10px 20px;
+    color:var(--black-color);
+    text-transform: capitalize;
+}
+.arrow-up {
+  top: -10px;
+  left: 20px; 
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid white;
+}  
+.dropdown-list a:hover {
+  background-color:var(--background-color-hover);
+  color: var(--main-color);
+  padding-left: 30px;
+}
+.dropdown:hover .dropdown-list {
+  visibility: visible;
+  transform: translate(-10%,5%);
+}
+.icons{
+  display: none;
+}
+/*================= sidebar =====================*/
+.side-bar{
+  z-index: 200;
+  border-left: 1px solid var(--border-color);
+  width: 25%;
+  right: -100%;
+  transition: all 0.3s;
+  color: var(--white-color);
+}
+
+.social-media i{
+  margin: 0 2%;
+  color: var(--white-color);
+  padding: 3% 3%;
+  border-radius: 50%;
+  border: 0.1px solid var(--border-color);
+  background-color:transparent;
+  cursor: pointer;
+  transition: all 0.5s;
+  outline: 0.1px solid var(--border-color);
+  animation: playicon 2s infinite  ease-in-out;
+}
+.social-media i:hover{
+  background-color: var(--main-color);
+}
+@keyframes playicon {
+  0%{
+    outline: 0.1px solid var(--border-color);
+    outline-offset: 0px;
+  }
+  100%{
+    outline-offset: 20px;
+    outline: 0px;
+  }
+}
+.sidebar-links a{
+  margin: 4% 2%;
+}
+.closed-content{
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+/*...................... navbar end .................................................................................*/
+/*...................... header section start ......................................................................*/
+.header-section{
+  overflow: hidden;
+  height: 70vh;
+  width: 100%;
+}
+#btnSearch{
+    right: 1%;
+    top: 15%;
+  }
+  #inputSearch{
+    height: 50px;
+  }
+  .header-content{
+    width: 50%;
+  }
+.header-image{
+  width: 50%;
+ 
+}  
+.circle-container {
+  width: 500px;
+  height: 500px;
+  border: 40px solid var(--black-color);
+  border-radius: 50%;
+  transition: transform 1s ease;
+  transform: translate(60%,-40%) rotate(var(--rotation));
+  position: relative;
+}
+
+.main-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 25px solid var(--black-color);
+  object-fit: cover;
+  position: absolute;
+  z-index: 11;
+  left: -20%;
+  top: 60%;
+   transition: transform 1s ease;
+   cursor: pointer;
+}
+/*===================== slider image ====================*/
+ .slider-container {
+      width: 100%;
+      overflow: hidden;
+     
+    }
+
+    .slider-track {
+      display: flex;
+      width: fit-content;
+      animation: scroll-left 40s linear infinite;
+    }
+
+    .slider-content {
+      display: flex;
+    }
+
+    .slider-content img {
+      width: 150px;
+      height: 80%;
+      margin-right: 20px;
+      border-radius: 10px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  .slider-container:hover .slider-track {
+    animation-play-state: paused;
+  }
+/*...................... header section end ......................................................................*/
+@media screen and (max-width:1300px){
+    #button-navbar{
+    display: none;
+  }
+  .side-bar{
+    width: 40%;
+  }
+  .logo h2{
+    font-size: 1.5rem;
+  }
+  .circle-container {
+  width: 500px;
+  height: 500px;
+  transform: translate(35%,-40%) rotate(var(--rotation));
+}
+
+.main-image {
+  width: 250px;
+  height: 250px;
+  left: -20%;
+  top: 60%;
+}
+}
+@media screen and (max-width:950px){
+  #button-navbar{
+    display: block;
+  }
+  i,p,button,.about-content p{
+    font-size: 1rem;
+  }
+  .navbar-links{
+    background-color: var(--black-color);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+  .navbar-links li{
+    padding: 3% 0%;
+    border-bottom: 0.1px solid var(--border-color);
+    transition: all 0.3s;
+  }
+  .navbar-links:hover li a:not(.dropdown-list a){
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+.navbar-links li a:not(.dropdown-list a):hover{
+   transform: scale(1);
+    filter: blur(0);
+}
+  .navbar-links li:hover{
+    padding-left: 2%;
+  }
+  .icons{
+    display: block;
+  }
+  .icons .fa-xmark{
+    display: none;
+  }
+  .side-bar{
+    width: 50%;
+  }
+  .header-section{
+    height: 100vh;
+  }
+  .first-section{
+    flex-direction: column;
+  }
+    .header-content{
+    width: 100%;
+  }
+  .header-image{
+    width: 100%;
+  }  
+  
+.slider-content img {
+      width: 100px;
+      height: 90%;
+}
+.circle-container {
+  width:500px;
+  height: 500px;
+  transform: translate(10%,10%) rotate(var(--rotation));
+}
+
+.main-image {
+  width: 300px;
+  height: 300px;
+  left: 10%;
+  top: -25%;
+
+}  
+}
+@media screen and (max-width:500px){
+   #button-navbar{
+    display: none;
+  }
+  .side-bar{
+    width: 85%;
+  }
+    .logo h2{
+    font-size: 1.2rem;
+    padding-top: 3%;
+  }
+  .circle-container {
+  width:500px;
+  height:500px;
+  transform: translate(-10%,10%) rotate(var(--rotation));
+}
+
+.main-image {
+  width: 250px;
+  height: 250px;
+  left: 0%;
+  top: -25%;
+
+}  
+.slider-content img {
+      width: 90px;
+      height: 90%;
+}
+}
+ 
