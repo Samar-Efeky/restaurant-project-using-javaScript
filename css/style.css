@@ -147,6 +147,7 @@ p{
   right: -100%;
   transition: all 0.3s;
   color: var(--white-color);
+  height: 90vh;
 }
 
 .social-media i{
