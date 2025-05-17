@@ -11,89 +11,7 @@
 </head>
 <body>
     <!-- ============================================== naviation bar ============================================= -->
-     <nav>
-        <div class="navbar-content bg-dark fixed-top container-fluid  d-flex ">
-            <a class="logo" href="index.html">
-                <div class=" py-3 pe-2">
-                    <h2 class="text-white">Online food</h2>
-                </div><!-- logo -->
-            </a>
-            <ul class="navbar-links  justify-content-between   list-unstyled px-lg-5 px-2 py-2 pt-4">
-                <li>
-                    <a href="#">home</a>
-                </li>
-                <li class="dropdown  position-relative">
-                    <a href="#" class="dropdown-link">Categories<i class="fa-solid fa-angle-down px-2 fs-6"></i></a>
-                        <div class="dropdown-list bg-white position-absolute top-100 start-0 ">
-                            <div class="arrow-up position-absolute"></div>
-                            <a href="#">Pizza</a>
-                            <a href="#">Pasta</a>
-                            <a href="#">chicken</a>
-                            <a href="#">Fish</a>
-                            <a href="#">Seafood</a>
-                            <a href="#">Lamb</a>
-                        </div> <!-- dropdown-list -->
-                </li> 
-                 <li>
-                    <a href="#">menu</a>
-                </li>
-                 <li>
-                    <a href="#">order</a>
-                </li>
-                <li>
-                    <a href="#">testimonial</a>
-                </li>
-                <li>
-                    <a href="#">contact</a>
-                </li>
-            </ul> <!-- navbar-links -->
-            <div class="icons-list   ms-auto px-3 py-3">
-               <div class="d-flex">
-                <div class="cart-numbers py-2  d-flex">
-                    <i class="fa-solid fa-cart-shopping text-white" title="Cart"></i>
-                    <span class=" px-1 bg-danger text-white rounded-1">1</span>
-                </div>
-                <button id="button-navbar" class=" px-4 py-lg-2 mx-3">Sign in</button>
-                <div class="icons text-white mx-3 position-relative">
-                    <i class="fa-solid fa-bars lh-lg position-absolute "></i>
-                    <i class="fa-solid fa-xmark  position-absolute lh-lg "></i>
-                </div> <!-- icons -->
-                <div>
-                    <i id="list-navbar" class="fa-solid fa-bars px-3 bg-white text-black rounded-2  ms-3 lh-lg"></i>
-                </div>
-               </div>
-               <!-- ============================= side bar ==================================== -->
-               <div class="side-bar bg-dark position-fixed p-3  top-0 ">
-                <div id="close-side-bar" class="position-absolute top-0 end-0 p-3">
-                    <i class="fa-solid fa-xmark closed-content p-2 rounded-2"></i>
-                </div>
-                  <a class="logo" href="index.html">
-                        <div class=" py-3 ">
-                            <h2 class="text-white">Online food</h2>
-                        </div><!-- logo -->
-                  </a>
-                <p class="my-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, ex. Sunt molestias commodi, asperiores quos itaque
-                     voluptatum minima quasi dolores animi eveniet provident ullam nostrum. Quod labore corr</p>
-                <div class="sidebar-links">
-                    <a href="#">Location</a>
-                    <a href="#">Email: onlinefood@gmail.com</a>
-                    <a href="#">+5455 8989 9990</a>
-                </div>
-                <div class="social-media py-2">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-linkedin"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                </div> <!-- social-media -->
-                <div class="w-100 text-center my-2 mt-4">
-                    <img  class="w-50" src="images/image1.png" alt="">
-                </div>
-                <div class="position-absolute bottom-0 start-0 w-100 px-5">
-                    <button class=" px-4 py-3  w-100">Sign in</button>
-                </div>
-               </div> <!-- side-bar -->
-            </div>
-        </div> <!-- navbar-content -->
+     <nav id="navbar">
      </nav>
      <!-- ====================================== first section =================================================== -->
       <header>
@@ -116,7 +34,7 @@
                 </div>
                 <div class="header-image p-5 ">
                     <div class="circle-container" id="circle">
-                        <img id="mainImage" class="main-image" data-bs-toggle="modal" data-bs-target="#exampleModal" src="" />
+                        <img id="mainImage" class="main-image"  src="" />
                     </div>
                 </div>
             </div>
@@ -128,22 +46,51 @@
                 </div>
             </div>
       </header>
-      <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Add to Cart</button>
-      </div>
+<!--============================================ categories section =========================================================-->
+<section>
+  <div class="categories color-section py-5">
+    <div class="title-section text-center py-5 ">
+      <h3 class="text-danger show-section">Food Items</h3>
+      <h2 class="fw-bolder show-section">Popular <span class="text-danger">Dishes</span></h2>
     </div>
+     <nav class="links d-flex  justify-content-center">
+        <a href="#pizza" >pizza</a>
+        <a href="#pasta">pasta</a>
+        <a href="#chicken">chicken</a>
+        <a href="#seafood">Seafood</a>
+      </nav>
+      <section  class="section  rounded-3">
+        <div id="pizza" class="category-content   p-md-5 p-2 d-block">
+          <div class="row">
+            
+          </div>
+        </div>
+        <div id="pasta" class="category-content   p-md-5 p-2 d-none">
+          <div class="row">
+           
+          </div>
+        </div>
+         <div id="chicken" class="category-content   p-md-5 p-2 d-none">
+          <div class="row">
+           
+          </div>
+        </div>
+         <div id="seafood" class="category-content  p-md-5 p-2 d-none">
+          <div class="row">
+           
+          </div>
+        </div>
+      </section>
+      <div class="text-center">
+        <a class="see-more  text-decoration-underline" href="recipe.details.html">See More</a>
+      </div>
   </div>
+</section>
+<!-- ============================= footer section ======================================= -->
+<footer id="footer" class="w-100 "></footer>
+<div class="scroll-top p-3  rounded-2">
+    <i class="fa-solid fa-arrow-up"></i>
 </div>
-    <script type="module" src="js/script.js"></script>
+<script type="module" src="js/script.js"></script>
 </body>
 </html>

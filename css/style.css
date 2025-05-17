@@ -13,13 +13,9 @@
     --color-section:#191618;
     --color-section-div:#1D1D1D;
     --color-pragrah:#8E8E8E;
-    --bg-section:#15161A;
+    --bg-section:#FFFCF3;
     --star-color:#ffc107;
     --rotation: 0deg;
-}
-
-body{
-  height: 5000px;
 }
 /* ................................. general styling start .....................................................................*/
 a{
@@ -53,16 +49,77 @@ button:not(#btnSearch):hover::after{
   height: 100%;
 }
 i{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 p{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .color-section{
   background-color: var(--bg-section);
 }
+/* ========== title section ================== */
+.title-section h3{
+  font-size: 2.5rem;
+  font-family: "Tagesschrift", system-ui;
+  animation: slideDown 1.5s ease forwards;
+}
+.title-section h2{
+  font-size: 3.5rem;
+  animation: slideUp 1.5s ease forwards;
+}
+/* ========== first section in page =================== */
+.first-section-in-page{
+  height: 60vh;
+  background-image: url(../images/bg_2.jpg);
+  background-repeat: no-repeat;
+  background-size:cover ;
+  background-attachment: fixed;
+}
+.overley{
+  background-color: rgba(0, 0, 0,0.7);
+}
+.overley h2{
+  font-size: 4rem;
+}
 /* ................................. general styling end ......................................................................*/
+/*============ anmitions ==========*/
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotate(-20deg);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 /*...................... navbar start .................................................................................*/
 .navbar-content{
   z-index: 99;
@@ -264,7 +321,121 @@ p{
     animation-play-state: paused;
   }
 /*...................... header section end ......................................................................*/
+/*...................... categories section start ...............................................................*/
+.links a{
+  margin: 0% 1%;
+  font-size: 1.1rem;
+  padding: 1% 2%;
+  background-color:var(--color-section);
+  border-radius: 8px;
+  color: var(--white-color);
+  transition: all 0.5s;
+}
+.links a.active{
+  background-color: var(--main-color);
+ 
+}
+.recipe-content{
+  background-color: var(--white-color);
+  border-radius: 8px;
+  border: 0.1px solid var(--border-color);
+  transition: all 0.4s ease; 
+  position: relative;
+}
+.recipe-content:hover{
+  box-shadow: 2px 2px 25px var(--border-color);
+}
+.recipe-content img{
+  height: 250px; 
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.recipe-content a{
+  font-size: 1.5rem;
+  color: var(--black-color);
+  transition: color 0.4s ease;
+}
+.recipe-content button{
+  width: 100%;
+ 
+}
+.recipe-content a:hover{
+  color: var(--main-color);
+}
+.stars-icons i{
+  color: var(--star-color);
+}
+.see-more{
+  color: var(--black-color);
+  font-size: 1.5rem;
+}
+/*...................... categories section end ...............................................................*/
+/* ..................... meal details page start ............................................................ */
+.meal-details-content h2{
+  font-size: 3rem;
+}
+.swiper-pagination-bullet {
+  background-color:var(--color-pragrah);
+}
+.swiper-pagination-bullet:nth-child(n+4) {
+  display: none;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color:var(--main-color); /* لون مختلف للـ dot النشطة */
+}
+/* ..................... meal details page end ............................................................ */
+/* ..................... footer section start ............................................................. */
+.angled-div {
+  clip-path: polygon(0 0, 100% 70px, 100% 100%, 0 100%);
+}
+.email-rest{
+  color: var(--main-color);
+  font-size: 1.3rem;
+}
+.footer-section span{
+  font-size: 1.3rem;
+}
+.footer-section p{
+  color: var(--color-pragrah);
+}
+.footer-links{
+  justify-content: space-between;
+}
+.footer-links li{
+  margin: 3% 0%;
+}
+.footer-links a{
+  transition: all 0.3s;
+}
+.footer-links a:hover{
+  transform: translateX(5%);
+}
+.copy-right-section{
+  border-top: 0.1px dotted var(--border-color);
+}
+.scroll-top{
+  background-color: var(--main-color);
+  color:var(--white-color);
+  cursor: pointer;
+  position: fixed;
+  z-index: 11;
+  bottom: 3%;
+  right: 3%;
+  display: none;
+}
+/* ..................... footer section end ............................................................. */
 @media screen and (max-width:1300px){
+  .title-section h3{
+  font-size: 2.3rem;
+}
+.title-section h2{
+  font-size: 3.3rem;
+}
+.overley h2{
+  font-size: 3.5rem;
+}
     #button-navbar{
     display: none;
   }
@@ -286,8 +457,24 @@ p{
   left: -20%;
   top: 60%;
 }
+.meal-details-content h2{
+  font-size: 2.7rem;
+}
+.email-rest,
+.footer-section span{
+  font-size: 1.1rem;
+}
 }
 @media screen and (max-width:950px){
+.title-section h3{
+  font-size: 2rem;
+}
+.title-section h2{
+  font-size: 3rem;
+}
+.overley h2{
+  font-size: 3rem;
+}
   #button-navbar{
     display: block;
   }
@@ -358,8 +545,30 @@ p{
   top: -25%;
 
 }  
+.meal-details-content h2{
+  font-size: 2rem;
+}
+.email-rest,
+.footer-section span{
+  font-size: 1rem;
+}
+.footer-links{
+  flex-wrap: wrap;
+}
+.footer-links div{
+  margin: 2% 0%;
+}
 }
 @media screen and (max-width:500px){
+  .title-section h3{
+  font-size: 1.8rem;
+}
+.title-section h2{
+  font-size: 2.5rem;
+}
+.overley h2{
+  font-size: 2.8rem;
+}
    #button-navbar{
     display: none;
   }
@@ -388,5 +597,6 @@ p{
       width: 90px;
       height: 90%;
 }
+
 }
  
