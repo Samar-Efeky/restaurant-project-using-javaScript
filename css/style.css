@@ -45,7 +45,7 @@ button::after{
   left: 0;
   transition: all 0.4s;
 }
-button:not(#btnSearch):hover::after{
+button:not(#btnSearch):not(.qty-btn):hover::after{
   height: 100%;
 }
 i{
@@ -70,7 +70,7 @@ p{
 }
 /* ========== first section in page =================== */
 .first-section-in-page{
-  height: 60vh;
+  height: 50vh;
   background-image: url(../images/bg_2.jpg);
   background-repeat: no-repeat;
   background-size:cover ;
@@ -248,7 +248,7 @@ p{
 }
 #btnSearch{
     right: 1%;
-    top: 15%;
+    top: 10px;
   }
   #inputSearch{
     height: 50px;
@@ -383,9 +383,152 @@ p{
 }
 .swiper-pagination-bullet-active {
   opacity: 1;
-  background-color:var(--main-color); /* لون مختلف للـ dot النشطة */
+  background-color:var(--main-color); 
 }
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: var(--black-color);
+}
+
+
+#quantity {
+  margin: 0 10px;
+  font-size: 1.3rem;
+  min-width: 20px;
+  text-align: center;
+}
+
 /* ..................... meal details page end ............................................................ */
+/* ..................... menu page start ................................................................... */
+.filter-menu{
+  width: 25%;
+  box-shadow: 2px 2px 25px var(--border-color);
+  height: 500px;
+  position: sticky;
+  top: 100px;
+  padding-top:1% ;
+  transition:all 0.4s ease;
+}
+.menu-content{
+  width: 75%;
+}
+.filter-menu a{
+  color: var(--black-color);
+  font-size: 1.2rem;
+  padding: 3% 0%;
+  transition:all 0.4s ease;
+}
+.filter-menu a:hover{
+  color: var(--main-color);
+  background-color: var(--background-color-hover);
+  padding-left: 3%;
+}
+.filter-menu h3{
+  background-color: var(--main-color);
+}
+#priceRange {
+  width: 100%;
+  appearance: none;
+  height: 8px;
+  background-color:var(--color-pragrah);
+  border-radius: 5px;
+ 
+}
+
+#priceRange::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background:var(--main-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.price-display {
+  font-weight: bold;
+  color: var(--main-color);
+}
+.menu-search{
+  width: 60%;
+}
+#filter-icon,#close-filter{
+  background-color: var(--white-color);
+  border: 0.1px solid var(--border-color);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: none;
+}
+#filter-icon:hover,#close-filter:hover{
+  background-color:var(--background-color-hover);
+}
+.pagination .page-link {
+  color: var(--black-color);
+ background-color: var(--white-color);
+  transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+  color: var(--main-color);
+}
+
+.pagination .active .page-link {
+  background-color: var(--main-color);
+  color:var(--white-color);
+  border: 0;
+}
+.filter-content{
+  background-color: var(--white-color);
+  border: 0.1px solid var(--border-color);
+  border-radius: 5px;
+}
+/* ..................... menu page end ................................................................... */
+/* ...................... cart page start ................................................................ */
+.cart-content{
+  width: 90%;
+}
+.cart-image{
+  width: 40%;
+}
+.cart-image img{
+  width: 25%;
+}
+.table-cart{
+  font-size: 1.2rem;
+}
+.table-cart img{
+  object-fit: cover;
+  height: 70px;
+}
+.table-cart p:hover{
+  color: var(--main-color);
+}
+.cart-quantity{
+  width: 70%;
+}
+.cart-count-animation {
+  box-shadow: 0 0 30px 5px var(--white-color); 
+  transition: box-shadow 0.5s ease-in-out;
+  border-radius: 50%;
+}
+/* ...................... cart page end ................................................................ */
 /* ..................... footer section start ............................................................. */
 .angled-div {
   clip-path: polygon(0 0, 100% 70px, 100% 100%, 0 100%);
@@ -460,9 +603,40 @@ p{
 .meal-details-content h2{
   font-size: 2.7rem;
 }
+.menu-section{
+  flex-direction: column;
+}
 .email-rest,
 .footer-section span{
   font-size: 1.1rem;
+}
+.filter-menu{
+  width: 40%;
+  position: fixed;
+  padding-top:0% ;
+  top: 0;
+  left: -100%;
+  z-index: 11111111111111111;
+  height: 100vh;
+}
+.menu-content{
+  width: 100%;
+}
+#filter-icon,#close-filter{
+  display:inline-block;
+  
+}
+.cart-content{
+  width: 100%;
+}
+.cart-image img{
+  width: 30%;
+}
+.table-cart{
+  font-size: 1rem;
+}
+.cart-quantity{
+  width: 80%;
 }
 }
 @media screen and (max-width:950px){
@@ -552,6 +726,25 @@ p{
 .footer-section span{
   font-size: 1rem;
 }
+.menu-search{
+  width: 70%;
+}
+.filter-menu{
+  width: 70%;
+}
+.cart-image{
+  width:100px;
+}
+.cart-image img{
+  width: 100%;
+}
+.cart-quantity{
+  width: 90%;
+}
+#quantity{
+  font-size: 1rem;
+}
+
 .footer-links{
   flex-wrap: wrap;
 }
@@ -596,6 +789,18 @@ p{
 .slider-content img {
       width: 90px;
       height: 90%;
+}
+.menu-search{
+  width: 80%;
+}
+.filter-menu{
+  width: 90%;
+}
+.cart-image{
+  width: 300px;
+}
+.cart-image img{
+  width: 100%;
 }
 
 }

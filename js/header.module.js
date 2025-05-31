@@ -1,20 +1,38 @@
-
 export let allRecipes = [];
+
 const sliderTrack = document.querySelector(".slider-track");
 const circle = document.getElementById("circle");
 const mainImage = document.getElementById("mainImage");
 let rotation = 0;
+const recipeCache = {};
 
 export const getAllRecipes = async (item) => {
   try {
+    if (recipeCache[item]) {
+      allRecipes = [...recipeCache[item]];
+      displayAllRecipes();
+      updateMainImage(allRecipes[0]);
+      return;
+    }
+
     const res = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${item}`);
+
+    if (!res.ok) {
+      throw new Error(`API returned status ${res.status}`);
+    }
+
     const data = await res.json();
 
-    allRecipes = data.recipes.slice(10, 30).map(recipe => ({
+    if (!data.recipes || !Array.isArray(data.recipes)) {
+      throw new Error("No recipes data found");
+    }
+
+    allRecipes = data.recipes.map(recipe => ({
       ...recipe,
-      price: Math.floor(Math.random() * 41) + 10,
+      price: Math.floor(Math.random() * (100 - 5 + 1)) + 5,
       query: item,
     }));
+    recipeCache[item] = [...allRecipes];
 
     displayAllRecipes();
     updateMainImage(allRecipes[0]);
@@ -23,6 +41,8 @@ export const getAllRecipes = async (item) => {
     console.error("Error fetching recipes:", error);
   }
 };
+
+getAllRecipes("pizza");
 
 function updateMainImage(recipe) {
   if (!mainImage || !recipe) return;

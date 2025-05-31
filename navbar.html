@@ -1,6 +1,6 @@
  <div class="navbar-content bg-dark fixed-top container-fluid  d-flex ">
             <a class="logo" href="index.html">
-                <div class=" py-3 pe-2">
+                <div class=" pt-3 pe-2">
                     <h2 class="text-white">Online food</h2>
                 </div><!-- logo -->
             </a>
@@ -12,16 +12,16 @@
                     <a href="#" class="dropdown-link">Categories<i class="fa-solid fa-angle-down px-2 fs-6"></i></a>
                         <div class="dropdown-list bg-white position-absolute top-100 start-0 ">
                             <div class="arrow-up position-absolute"></div>
-                            <a href="#">Pizza</a>
-                            <a href="#">Pasta</a>
-                            <a href="#">chicken</a>
-                            <a href="#">Fish</a>
-                            <a href="#">Seafood</a>
-                            <a href="#">Lamb</a>
+                             <a href="menu.html?category=pizza">Pizza</a>
+                             <a href="menu.html?category=pasta">Pasta</a>
+                             <a href="menu.html?category=chicken">Chicken</a>
+                             <a href="menu.html?category=fish">Fish</a>
+                             <a href="menu.html?category=seafood">Seafood</a>
+                             <a href="menu.html?category=lamb">Lamb</a>
                         </div> <!-- dropdown-list -->
                 </li> 
                  <li>
-                    <a href="#">menu</a>
+                    <a href="menu.html">menu</a>
                 </li>
                  <li>
                     <a href="#">order</a>
@@ -35,10 +35,12 @@
             </ul> <!-- navbar-links -->
             <div class="icons-list   ms-auto px-3 py-3">
                <div class="d-flex">
-                <div class="cart-numbers py-2  d-flex">
+               <a href="cart.html">
+                  <div class="cart-numbers py-2  d-flex">
                     <i class="fa-solid fa-cart-shopping text-white" title="Cart"></i>
-                    <span class=" px-1 bg-danger text-white rounded-1">1</span>
-                </div>
+                    <span  id="cart-count" class=" px-1 bg-danger text-white rounded-1">1</span>
+                  </div>
+               </a>
                 <button id="button-navbar" class=" px-4 py-lg-2 mx-3">Sign in</button>
                 <div class="icons text-white mx-3 position-relative">
                     <i class="fa-solid fa-bars lh-lg position-absolute "></i>

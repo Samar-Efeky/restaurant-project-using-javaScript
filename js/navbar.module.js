@@ -9,7 +9,7 @@ export function navbar(){
     let linkNavbar = document.querySelectorAll(".navbar-links a");
     const mediaQuery = window.matchMedia("(max-width: 950px)");
     // active navigation bar links .................................................//
-    function removeActiveClass() {
+   function removeActiveClass() {
         linkNavbar.forEach(link => link.classList.remove("active"));
     };
     linkNavbar.forEach((link)=>{
@@ -19,16 +19,27 @@ export function navbar(){
                 closedNavbar.style.display="none";
                 navbarList.style.display="block";
             }
+            setLinkActive();
             removeActiveClass();
             e.target.classList.add("active");
         });
     });
-    linkNavbar.forEach((link)=>{
-        let currentUrl=location.pathname.replace("/","");
+    function setLinkActive(){
+         linkNavbar.forEach((link)=>{
+        let currentUrl=location.pathname.split("/").pop().replace("/","");
+        
         if(link.getAttribute("href")===currentUrl||link.getAttribute("href")===currentUrl+location.hash){
             link.classList.add("active");
-        }    
-    })
+        } 
+        else if(link.getAttribute("href")==="index.html#home-page"&&currentUrl==="index.html"&&location.hash===""){
+            link.classList.add("active");
+        }
+        else if(link.getAttribute("href")==="index.html#home-page"&&currentUrl===""&&location.hash===""){
+            link.classList.add("active");
+        }
+    });
+    }
+    setLinkActive();
       
     // navigation bar links in small screens ..................//
     mediaQuery.addEventListener("change",(e)=>{
@@ -59,4 +70,25 @@ export function navbar(){
     closeSidebar.addEventListener("click",()=>{
         sidebar.style.right="-100%";
     });
+}
+export function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const countSpan = document.getElementById("cart-count");
+  if (!countSpan) return;
+
+  let totalQuantity = 0;
+  cart.forEach(item => {
+    totalQuantity += item.quantity || 1;
+  });
+
+  // تحديث الرقم
+  countSpan.textContent = totalQuantity;
+  
+}
+export function shadowCart(){
+    const countSpan = document.getElementById("cart-count");
+    countSpan.classList.add("cart-count-animation");
+    setTimeout(() => {
+    countSpan.classList.remove("cart-count-animation");
+  }, 1000);
 }
