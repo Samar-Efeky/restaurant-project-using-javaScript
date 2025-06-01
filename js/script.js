@@ -7,6 +7,7 @@ import { recipeDetails } from "./meal.details.js";
 import { menuSection } from "./menu.module.js";
 import { displayCart } from "./cart.module.js";
 import { deliverySection } from './deliverySection.module.js';
+import { testimonial } from "./testimonial.module.js";
 document.addEventListener("DOMContentLoaded", () => {
      fetch("navbar.html")
       .then(response => response.text())
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deliverySection();
     displayCart();
     menuSection();
+    testimonial();
     fetch("footer.html")
     .then(response => response.text())
     .then(data => {

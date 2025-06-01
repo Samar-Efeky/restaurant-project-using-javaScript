@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -47,7 +48,7 @@
             </div>
       </header>
 <!--============================================ categories section =========================================================-->
-<section>
+<section id="Categories-section">
   <div class="categories color-section py-5">
     <div class="title-section text-center py-5 ">
       <h3 class="text-danger show-section">Food Items</h3>
@@ -86,11 +87,127 @@
       </div>
   </div>
 </section>
+<!-- ===================================== delivery section =========================================== -->
+<section id="deliverySection" class="delivery-section bg-dark text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Text Column -->
+      <div class="col-md-6 delivery-text text-center text-md-start mb-4 mb-md-0">
+        <p class="subtitle mb-2">Crispy, Every Bite Taste</p>
+        <h1>
+          30 MINUTES FAST<br>
+          <span class="highlight">DELIVERY</span> CHALLENGE
+        </h1>
+         <a href="order.html">
+            <button class="py-2 px-4 my-2">Order Now</button>
+        </a>
+      </div>
+
+      <!-- Right Image Column -->
+      <div class="col-md-6">
+        <img src="images/delivery.png" alt="Delivery Rider" class="delivery-img transition"> 
+      </div>
+
+    </div>
+  </div>
+</section>
+ <!-- ==================================== testimonial section ============================================== -->
+     <section id="testimonial-link" class="py-3 pb-5 color-section">
+        <div class="testimonial-section">
+           <div class="title-section text-center py-5 ">
+              <h3 class="text-danger show-section">Testimonial</h3>
+              <h2 class="fw-bolder show-section">Happy Customer</h2>
+           </div>
+        </div>
+        <div class="customers-slider bg-white position-relative rounded-4 p-3 d-flex justify-content-between container-lg">
+            <div class="fixed-images">
+              <img class="d-block p-4" src="images/customer2.png" alt="">
+              <img class="p-4" src="images/customer3.png" alt="" >
+            </div>
+              <!-- Swiper -->
+              <div class="swiper  testimonial-swiper ">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide  text-start p-md-5 p-2">
+                    <div class="stars py-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote show-section py-3">"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dolor fugiat quo, minima fuga nulla
+                         beatae qui architecto a laboriosam ullam in iusto eligendi quis dolore ad voluptatem porro laudantium"</p>
+                    <p class="name">John Doe</p>
+                    <p class="role">Product Designer</p>
+                  </div>
+                  <div class="swiper-slide  text-start p-md-5 p-2">
+                    <div class="stars py-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote show-section py-3">"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dolor fugiat quo, minima fuga nulla
+                         beatae qui architecto a laboriosam ullam in iusto eligendi quis dolore ad voluptatem porro laudantium"</p>
+                    <p class="name">Shawan Beltran</p>
+                    <p class="role">Bussiness Owner</p>
+                  </div>
+                  <div class="swiper-slide  text-start p-md-5 p-2">
+                    <div class="stars py-3">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="quote show-section py-3">"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dolor fugiat quo, minima fuga nulla
+                         beatae qui architecto a laboriosam ullam in iusto eligendi quis dolore ad voluptatem porro laudantium"</p>
+                    <p class="name">Nethon Jr</p>
+                    <p class="role">Product Designer</p>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+          
+            <div class="dots" id="dots-container"></div>
+            <div class="fixed-images text-end">
+                <img class="p-4 d-block" src="images/customer1.png" alt="">
+            </div>
+          </div>
+     </section>
+    <!--============================== section go to menu =====================================  -->
+      <section>
+        <div class="menu-today text-white bg-dark  overflow-hidden">
+          <div class="today-content position-relative ">
+             <div class="d-flex w-100  position-absolute top-0 start-0">
+              <div class="potato-img">
+                <img src="images/img2.png"   alt="potato-img">
+              </div>
+              <div class="pizza-img text-end">
+                <img src="images/pizza.png" alt="pizza-img">
+          
+              </div>
+            </div>
+            <div class="py-lg-4 position-absolute today-content-text  w-100  top-0">
+              <p>save 20%<br>tODAY'S <span>MENU</span><br> Super<span> Delicious Pizza</span></p>
+              <a href="menu.html">
+                <button class="py-2 px-3">See Menu Today</button>
+              </a>
+            </div>
+            <div class="position-absolute top-0 start-0 p-2">
+              <img src="images/meal-text.png" class="meal-text image-rotate" alt="meal-text">
+            </div>
+          </div>
+        </div>
+      </section>  
 <!-- ============================= footer section ======================================= -->
-<footer id="footer" class="w-100 "></footer>
+<footer id="footer" class="w-100 pt-5"></footer>
 <div class="scroll-top p-3  rounded-2">
     <i class="fa-solid fa-arrow-up"></i>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script type="module" src="js/script.js"></script>
 </body>
 </html>

@@ -626,6 +626,42 @@ p{
       letter-spacing: 1px;
     }
 /* ...................... contact page end .......................................................... */
+/*............................................ testimonial section start ...............................................*/
+.customers-slider{
+  overflow: hidden;
+}
+.image-rotate{
+  animation: rotate 2s infinite alternate ease-in-out;
+}
+.swiper-slide {
+  line-height: 1.6;
+  animation: fadeIn 0.5s ease;
+}
+.quote.show{
+  animation: slideUp 0.8s ease-out;
+}
+.stars {
+  color:var(--star-color);
+}
+.name {
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 1.8rem;
+}
+
+.role {
+  color:var(--color-pragrah);
+  font-size: 1.3rem;
+}
+
+.swiper-pagination-bullet {
+  background:var(--color-pragrah);
+}
+
+.swiper-pagination-bullet-active {
+  background:var(--main-color);
+}
+/*............................................ testimonial section end ...............................................*/
 /* ..................... footer section start ............................................................. */
 .angled-div {
   clip-path: polygon(0 0, 100% 70px, 100% 100%, 0 100%);
@@ -892,6 +928,24 @@ p{
 .delivery-text h1 {
   font-size: 2rem;
 }
+.customers-slider{
+    width: 90%;
+    margin: auto;
+  }
+  .swiper{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0,0.6);
+  }
+  .role{
+    color: var(--white-color);
+  }
+  .quote{
+    color: var(--white-color);
+  }
 }
 @media screen and (max-width:500px){
   .title-section h3{
@@ -968,5 +1022,11 @@ p{
 .meal-text{
   width: 40%;
 }
+.name {
+    font-size: 1.5rem;
+  }
+  .customers-slider{
+    width: 100%;
+  }
 }
  
