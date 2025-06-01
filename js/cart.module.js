@@ -1,41 +1,62 @@
+// Import utility functions to update cart count and visual shadow effect
 import { shadowCart, updateCartCount } from "./navbar.module.js";
 
-// Function to display the cart contents
+// Main function to display and manage cart content
 export function displayCart() {
-  const cartContainer = document.querySelector(".table-cart"); // Select the container where the cart items will be displayed
-  let cart = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve the cart from localStorage, or initialize it as an empty array if not found
+  const cartContainer = document.querySelector(".table-cart"); // Table body where cart items will be rendered
+  const totalPrice = document.getElementById("total-price"); // Element to display the total cart price
+  const updateCartBtn = document.getElementById("update-cart"); // Button to clear the entire cart
+  const checkoutBtn=document.getElementById("subtotal-cart");  // Button checkout in cart 
+  // Get cart data from localStorage or initialize as empty array
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Function to update the localStorage whenever the cart changes
+  // Helper function to update localStorage whenever the cart changes
   function updateLocalStorage() {
-    localStorage.setItem("cart", JSON.stringify(cart)); // Save the updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-  // Function to render the cart items on the page
+  // Calculate and update the total price displayed in the UI
+  function updateTotalPrice() {
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    if (totalPrice) totalPrice.textContent = `${total}$`;
+  }
+
+  // Function to render the entire cart UI
   function renderCart() {
-    if (!cartContainer) return; // Ensure the cart container exists before rendering
+    if (!cartContainer) return;
 
-    cartContainer.innerHTML = ""; // Clear the container before re-rendering
+    cartContainer.innerHTML = ""; // Clear previous cart content
 
-    // If the cart is empty, display a message
+    // Show or hide the "Clear Cart" button based on cart length
+    if (updateCartBtn) updateCartBtn.style.display = cart.length === 0 ? "none" : "inline-block";
+
+    // Handle empty cart state
     if (cart.length === 0) {
-      cartContainer.innerHTML = `<tr><td colspan="6" class="text-center text-danger">Your cart is empty.</td></tr>`;
+      cartContainer.innerHTML = `
+        <tr>
+          <td colspan="6" class="text-center text-danger">Your cart is empty.</td>
+        </tr>
+      `;
+      if (totalPrice) totalPrice.textContent = "0$";
       return;
     }
 
-    // Loop through each item in the cart and create a row for it
+    // Loop through each cart item and generate its row
     cart.forEach((item, index) => {
-      // Check if the item has a quantity, and default it to 1 if not
+      // Ensure quantity exists (default to 1)
       if (!item.quantity) item.quantity = 1;
 
-      const subtotal = item.price * item.quantity; // Calculate the subtotal for the item (price * quantity)
+      const subtotal = item.price * item.quantity;
 
-      // Create a new row for the cart item
+      // Create table row for item
       const row = document.createElement("tr");
       row.innerHTML = `
         <td class="cart-image px-2">
           <img src="${item.image_url}" alt="${item.title}" style="cursor:pointer"/>
         </td>
-        <td class="pt-4"><p style="cursor:pointer">${item.title.split(" ").slice(0, 2).join(" ")}</p></td>
+        <td class="pt-4">
+          <p style="cursor:pointer">${item.title.split(" ").slice(0, 2).join(" ")}</p>
+        </td>
         <td class="pt-4">${item.price}$</td>
         <td>
           <div class="quantity-box cart-quantity mt-2">
@@ -45,53 +66,76 @@ export function displayCart() {
           </div>
         </td>
         <td class="pt-4 subtotal">${subtotal}$</td>
-        <td class="p-4"><i class="fa-solid fa-xmark remove-btn" style="cursor:pointer"></i></td>
+        <td class="p-4">
+          <i class="fa-solid fa-xmark remove-btn" style="cursor:pointer"></i>
+        </td>
       `;
 
-      // Event listener to navigate to the product details page when the image is clicked
+      // Navigate to meal details page when clicking image or title
       row.querySelector("img").addEventListener("click", () => {
         window.location.href = `meal.details.html?id=${item.recipe_id}&q=${item.category}`;
       });
-
-      // Event listener to navigate to the product details page when the title is clicked
       row.querySelector("p").addEventListener("click", (e) => {
-        e.preventDefault(); // Prevent the default behavior
+        e.preventDefault();
         window.location.href = `meal.details.html?id=${item.recipe_id}&q=${item.category}`;
       });
 
-      // Event listener to remove the item from the cart when the "remove" button is clicked
+      // Remove item from cart
       row.querySelector(".remove-btn").addEventListener("click", () => {
-        cart.splice(index, 1); // Remove the item from the cart array
-        updateLocalStorage(); // Update the cart in localStorage
-        updateCartCount(); // Update the cart item count in the navbar
-        renderCart(); // Re-render the cart
-        shadowCart(); // Update the cart shadow (cart preview)
+        cart.splice(index, 1);
+        updateLocalStorage();
+        updateCartCount(); // Update cart badge or counter
+        shadowCart(); // Visual cart indicator
+        renderCart(); // Re-render updated cart
       });
 
-      // Event listener to increase the quantity of the item when the "+" button is clicked
+      // Increase item quantity
       row.querySelector(".increase-btn").addEventListener("click", () => {
-        cart[index].quantity += 1; // Increase the quantity by 1
-        updateLocalStorage(); // Update the cart in localStorage
-        updateCartCount(); // Update the cart item count in the navbar
-        renderCart(); // Re-render the cart
-        shadowCart(); // Update the cart shadow (cart preview)
+        cart[index].quantity += 1;
+        updateLocalStorage();
+        updateCartCount();
+        shadowCart();
+        renderCart();
       });
 
-      // Event listener to decrease the quantity of the item when the "-" button is clicked
+      // Decrease item quantity (minimum is 1)
       row.querySelector(".decrease-btn").addEventListener("click", () => {
-        // Ensure that the quantity does not go below 1
         if (cart[index].quantity > 1) {
-          cart[index].quantity -= 1; // Decrease the quantity by 1
-          updateLocalStorage(); // Update the cart in localStorage
-          updateCartCount(); // Update the cart item count in the navbar
-          renderCart(); // Re-render the cart
-          shadowCart(); // Update the cart shadow (cart preview)
+          cart[index].quantity -= 1;
+          updateLocalStorage();
+          updateCartCount();
+          shadowCart();
+          renderCart();
         }
       });
 
-      cartContainer.appendChild(row); // Append the row to the cart container
+      // Append the constructed row to the cart container
+      cartContainer.appendChild(row);
+    });
+
+    // Update total price after all items rendered
+    updateTotalPrice();
+  }
+
+  // Listen for click on "Clear Cart" button
+  if (updateCartBtn) {
+    updateCartBtn.addEventListener("click", () => {
+      cart = [];
+      updateLocalStorage();
+      updateCartCount();
+      shadowCart();
+      renderCart();
     });
   }
 
-  renderCart(); // Call the renderCart function to display the cart
+  // Initial cart render on page load
+  renderCart();
+  // Check if the checkout button exists
+  if(checkoutBtn){
+    // Add a click event listener to the checkout button
+    checkoutBtn.addEventListener("click",()=>{
+      // Redirect the user to the order.html page
+      window.location.href='order.html';
+    });
+  };
 }

@@ -6,6 +6,7 @@ import { setupObserver } from "./observer.module.js";
 import { recipeDetails } from "./meal.details.js";
 import { menuSection } from "./menu.module.js";
 import { displayCart } from "./cart.module.js";
+import { deliverySection } from './deliverySection.module.js';
 document.addEventListener("DOMContentLoaded", () => {
      fetch("navbar.html")
       .then(response => response.text())
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.location.pathname.includes("meal.details.html")) {
       recipeDetails();
     };
+    deliverySection();
     displayCart();
     menuSection();
     fetch("footer.html")
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let currentYear=new Date().getFullYear();
       document.querySelector(".copy-right-year").innerHTML=currentYear;
       scrollToPageTop();
+      setupObserver();
      
   });  
  function scrollToPageTop() {

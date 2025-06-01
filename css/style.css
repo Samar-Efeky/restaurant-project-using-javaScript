@@ -113,12 +113,20 @@ p{
     transform: rotateY(0deg);
   }
   100%{
-    transform: rotate(-20deg);
+    transform: rotate(20deg);
   }
 }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+@keyframes MoveImg{
+  0%{
+    transform: translate(-5%,5%);
+  }
+  100%{
+    transform: translate(0%,0%);
+  }
 }
 /*...................... navbar start .................................................................................*/
 .navbar-content{
@@ -528,7 +536,97 @@ p{
   transition: box-shadow 0.5s ease-in-out;
   border-radius: 50%;
 }
+.total-cart{
+  width: 50%;
+  border: 0.1px solid var(--color-pragrah);
+}
+.subtotal{
+  border-bottom: 0.1px dotted var(--color-pragrah);
+  font-weight: 500;
+}
 /* ...................... cart page end ................................................................ */
+/* ...................... order page start ............................................................. */
+.menu-today{
+  height: 50vh;
+}
+.today-content{
+  background-color: transparent;
+}
+.today-content p{
+  font-size: 3rem;
+  font-weight: 600;
+}
+.today-content-text{
+  left: 20%;
+  height: 50vh;
+}
+.today-content span{
+  color: var(--star-color);
+}
+.potato-img{
+  width: 40%;
+}
+.potato-img img{
+  width: 50%;
+  transform: translate(-30%,40%);
+}
+.pizza-img{
+  width: 60%;
+}
+.pizza-img img{
+  width: 55%;
+  animation: MoveImg 2s infinite alternate ease-in-out;
+}
+.image-rotate{
+  animation: rotate 2s infinite alternate ease-in-out;
+}
+.meal-text{
+  width: 90%;
+}
+/* ...................... order page end ............................................................. */
+/* ...................... contact page start .......................................................... */
+.phone-box{
+  background-color: var(--main-color);
+}
+.contact-box{
+  background-color: var(--white-color);
+  transition:all 0.4s ease;
+}
+.contact-box p{
+  color: var(--color-section-div);
+  transition: all 0.4s ease;
+}
+.contact-box:hover{
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+.contact-box:hover p{
+  color: var(--white-color);
+}
+  .delivery-img {
+      max-width: 50%;
+      height: auto;
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+
+    .delivery-text h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .highlight {
+      color:var(--star-color);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color:var(--star-color);
+      letter-spacing: 1px;
+    }
+/* ...................... contact page end .......................................................... */
 /* ..................... footer section start ............................................................. */
 .angled-div {
   clip-path: polygon(0 0, 100% 70px, 100% 100%, 0 100%);
@@ -539,6 +637,9 @@ p{
 }
 .footer-section span{
   font-size: 1.3rem;
+}
+.footer-section span.show{
+  animation: slideDown 1s alternate ease-in-out;
 }
 .footer-section p{
   color: var(--color-pragrah);
@@ -637,6 +738,23 @@ p{
 }
 .cart-quantity{
   width: 80%;
+}
+.total-cart{
+  width: 60%;
+  margin: auto;
+}
+.today-content p{
+  font-size: 2.5rem;
+}
+.potato-img img{
+  width: 60%;
+  transform: translate(-20%,70%);
+}
+.pizza-img img{
+  width: 65%;
+}
+.meal-text{
+  width: 70%;
 }
 }
 @media screen and (max-width:950px){
@@ -751,6 +869,30 @@ p{
 .footer-links div{
   margin: 2% 0%;
 }
+.total-cart{
+  width: 70%;
+}
+.today-content-text{
+  left: 0%;
+  background-color: rgba(0, 0, 0,0.4);
+  padding: 5% 15%;
+}
+.today-content p{
+  font-size: 2.5rem;
+}
+.potato-img img{
+  width: 80%;
+  transform: translate(-20%,100%);
+}
+.pizza-img img{
+  width: 85%;
+}
+.meal-text{
+  width: 50%;
+}
+.delivery-text h1 {
+  font-size: 2rem;
+}
 }
 @media screen and (max-width:500px){
   .title-section h3{
@@ -802,6 +944,30 @@ p{
 .cart-image img{
   width: 100%;
 }
-
+.total-cart{
+  width: 90%;
+}
+.today-content-text{
+  padding: 10% 5%;
+}
+.today-content p{
+  font-size: 2.2rem;
+}
+.potato-img{
+  width: 50%;
+}
+.potato-img img{
+  width: 100%;
+  transform: translate(-20%,120%);
+}
+.pizza-img{
+ width: 50%;
+}
+.pizza-img img{
+  width: 100%;
+}
+.meal-text{
+  width: 40%;
+}
 }
  

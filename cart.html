@@ -24,7 +24,7 @@
      <!-- ========================================= cart section ========================================= -->
       <section>
         <div class="color-section p-lg-5">
-           <div class="cart-content table-responsive m-auto my-5">
+           <div class="cart-content table-responsive m-auto mt-3">
              <table class="table table-striped  w-100">
                 <thead>
                    <tr>
@@ -36,15 +36,27 @@
                     <th>REMOVE</th>
                    </tr>
                 </thead>
-                <tbody class="table-cart">
-                    
+                <tbody class="table-cart"> 
                 </tbody>
+                <tfoot>
+                  <tr>
+                     <td class="p-4 text-end" colspan="6"><button id="update-cart" class="px-4 py-2 ">Update Cart</button></td>
+                  </tr>
+                </tfoot>
             </table>
+            <div class="total-cart bg-white my-5 p-4">
+               <p class="text-center fs-5 fw-bold">Cart Total</p>
+               <div class="subtotal d-flex py-2"> 
+                  <p class="w-50">SubTotal</p>
+                  <p id="total-price" class="w-50">334$</p>
+               </div>
+               <button id="subtotal-cart" class="px-4 py-2 my-4 ">Checkout</button>
+            </div>
            </div>
         </div>
       </section>
      <!-- ============================= footer section ======================================= -->
-     <footer id="footer" class="w-100 pt-5 color-section"></footer> 
+     <footer id="footer" class="w-100  color-section"></footer> 
      <div class="scroll-top p-3  rounded-2">
         <i class="fa-solid fa-arrow-up"></i>
      </div>
