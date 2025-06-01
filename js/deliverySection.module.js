@@ -7,7 +7,8 @@ const deliveryImg = document.querySelector('.delivery-img');
 let lastScrollTop = window.pageYOffset;
 
 window.addEventListener('scroll', () => {
-  // Get the position of the delivery section relative to the viewport
+  if(deliverySection&&deliveryImg){
+    // Get the position of the delivery section relative to the viewport
   const sectionRect = deliverySection.getBoundingClientRect();
   const windowHeight = window.innerHeight;
   const currentScrollTop = window.pageYOffset;
@@ -34,5 +35,6 @@ window.addEventListener('scroll', () => {
 
   // Update the last scroll position (prevent negative values)
   lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+  }
 });
 }
