@@ -18,6 +18,35 @@
     --rotation: 0deg;
 }
 /* ................................. general styling start .....................................................................*/
+body{
+  overflow: hidden;
+}
+/* .................... loading screen start ..................... */
+.loading{
+  z-index: 1111111111111111111111111;
+  background-color: var(--bg-section);
+}
+.loading h2{
+  font-size: 4rem;
+  font-weight: 900;
+  font-family:'Times New Roman', Times, serif;
+   color: transparent;
+  -webkit-text-stroke: 0.5px var(--black-color);
+  background: linear-gradient(to right, var(--main-color) 50%, transparent 50%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: change 2s infinite alternate ease-in-out;
+}
+@keyframes change {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+/* .................... loading screen end ..................... */
 a{
   text-decoration: none;
   transition: all 0.3s ease-out;
@@ -62,10 +91,14 @@ p{
 .title-section h3{
   font-size: 2.5rem;
   font-family: "Tagesschrift", system-ui;
+}
+.title-section h3.show{
   animation: slideDown 1.5s ease forwards;
 }
 .title-section h2{
   font-size: 3.5rem;
+}
+.title-section h2.show{
   animation: slideUp 1.5s ease forwards;
 }
 /* ========== first section in page =================== */
@@ -81,6 +114,9 @@ p{
 }
 .overley h2{
   font-size: 4rem;
+}
+.overley h2.show{
+  animation: zoomIn 0.8s ease;
 }
 /* ................................. general styling end ......................................................................*/
 /*============ anmitions ==========*/
@@ -128,11 +164,15 @@ p{
     transform: translate(0%,0%);
   }
 }
+h5.show{
+  animation: slideUp 1s ease;
+}
 /*...................... navbar start .................................................................................*/
 .navbar-content{
   z-index: 99;
 }
 /*================= logo =======================*/
+
 .logo h2{
   font-size: 1.8rem;
   padding-top: 1%;
@@ -290,6 +330,15 @@ p{
    transition: transform 1s ease;
    cursor: pointer;
 }
+#searchResults{
+  max-height:150px;
+  overflow-y: auto;
+  position: absolute;
+
+}
+#btnSearch{
+  top: 12%;
+}
 /*===================== slider image ====================*/
  .slider-container {
       width: 100%;
@@ -435,6 +484,9 @@ p{
   padding-top:1% ;
   transition:all 0.4s ease;
 }
+.filter-menu.show{
+  animation: zoomIn 1s ease;
+}
 .menu-content{
   width: 75%;
 }
@@ -517,12 +569,18 @@ p{
 .cart-image img{
   width: 25%;
 }
+.cart-image img.show{
+  animation: zoomIn 1s ease-in;
+}
 .table-cart{
   font-size: 1.2rem;
 }
 .table-cart img{
   object-fit: cover;
   height: 70px;
+}
+.table-cart p.show{
+  animation: slideUp 0.8s ease-in-out;
 }
 .table-cart p:hover{
   color: var(--main-color);
@@ -582,6 +640,9 @@ p{
 .meal-text{
   width: 90%;
 }
+.order-div.show{
+  animation: zoomIn 1s ease;
+}
 /* ...................... order page end ............................................................. */
 /* ...................... contact page start .......................................................... */
 .phone-box{
@@ -614,7 +675,10 @@ p{
       font-weight: 800;
       line-height: 1.2;
     }
-
+    .delivery-text.show,
+    .section-title.show{
+      animation: slideUp 1s ease;
+    }
     .highlight {
       color:var(--star-color);
     }
@@ -624,6 +688,10 @@ p{
       text-transform: uppercase;
       color:var(--star-color);
       letter-spacing: 1px;
+    }
+    .fill-up-the-form.show,
+    .login-container.show{
+      animation: zoomIn 1s ease;
     }
 /* ...................... contact page end .......................................................... */
 /*............................................ testimonial section start ...............................................*/
@@ -662,6 +730,18 @@ p{
   background:var(--main-color);
 }
 /*............................................ testimonial section end ...............................................*/
+/* ........................................... sign in page start ............................................... */
+.login-section{
+  height: 90vh;
+}
+.login-container{
+  width: 50%;
+}
+.login-title{
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+/* ........................................... sign in page end ............................................... */
 /* ..................... footer section start ............................................................. */
 .angled-div {
   clip-path: polygon(0 0, 100% 70px, 100% 100%, 0 100%);
@@ -673,11 +753,11 @@ p{
 .footer-section span{
   font-size: 1.3rem;
 }
-.footer-section span.show{
-  animation: slideDown 1s alternate ease-in-out;
-}
 .footer-section p{
   color: var(--color-pragrah);
+}
+.footer-section p.show{
+  animation: slideUp 0.8s ease;
 }
 .footer-links{
   justify-content: space-between;
@@ -843,7 +923,7 @@ p{
     width: 50%;
   }
   .header-section{
-    height: 100vh;
+    height: 90vh;
   }
   .first-section{
     flex-direction: column;
@@ -932,7 +1012,7 @@ p{
     width: 90%;
     margin: auto;
   }
-  .swiper{
+  .testimonial-swiper{
     position: absolute;
     width: 100%;
     top: 0;
@@ -946,8 +1026,17 @@ p{
   .quote{
     color: var(--white-color);
   }
+  .login-container{
+  width: 80%;
+}
+.login-title{
+  font-size: 1.2rem;
+}
 }
 @media screen and (max-width:500px){
+  .header-section{
+    height: 80vh;
+  }
   .title-section h3{
   font-size: 1.8rem;
 }
@@ -1028,5 +1117,8 @@ p{
   .customers-slider{
     width: 100%;
   }
+   .login-container{
+  width: 95%;
+}
 }
  

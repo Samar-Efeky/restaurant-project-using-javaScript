@@ -52,10 +52,10 @@ export function displayCart() {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td class="cart-image px-2">
-          <img src="${item.image_url}" alt="${item.title}" style="cursor:pointer"/>
+          <img class="show-section" src="${item.image_url}" alt="${item.title}" style="cursor:pointer"/>
         </td>
         <td class="pt-4">
-          <p style="cursor:pointer">${item.title.split(" ").slice(0, 2).join(" ")}</p>
+          <p class="show-section" style="cursor:pointer">${item.title.split(" ").slice(0, 2).join(" ")}</p>
         </td>
         <td class="pt-4">${item.price}$</td>
         <td>

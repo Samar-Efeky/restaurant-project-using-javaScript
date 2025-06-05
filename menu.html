@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+     <!-- =================================== loading screen ================================== -->
+      <div class="loading  position-fixed top-0 bottom-0 start-0 end-0 
+        d-flex justify-content-center align-items-center">
+          <h2>Online Food</h2>
+      </div>
     <!-- ============================================== naviation bar ============================================= -->
      <nav id="navbar">
      </nav>
@@ -18,14 +22,14 @@
      <header>
         <div class="first-section-in-page w-100 position-relative">
             <div class="overley w-100 h-100 position-absolute top-0 start-0 d-flex align-items-center justify-content-center">
-                <h2 class="text-white fw-bolder">Food Menu</h2>
+                <h2 class="text-white fw-bolder show-section">Food Menu</h2>
             </div>
         </div>
      </header>
     <!-- ========================================= menu section filter ============================================= -->
      <section>
         <div class="menu-section w-100 py-5 px-xl-3 px-0  d-flex color-section  position-relative">
-            <div class="filter-menu  text-center bg-white ">
+            <div class="filter-menu show-section text-center bg-white ">
                 <div class="text-end px-2">
                     <i id="close-filter" class="fa-solid fa-xmark p-2 my-1"></i>
                 </div>
@@ -74,6 +78,5 @@
      <div class="scroll-top p-3  rounded-2">
         <i class="fa-solid fa-arrow-up"></i>
      </div>
-     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
      <script type="module" src="js/script.js"></script>
 </body>

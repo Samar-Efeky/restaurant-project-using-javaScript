@@ -1,84 +1,121 @@
- <div class="navbar-content bg-dark fixed-top container-fluid  d-flex ">
-            <a class="logo" href="index.html">
-                <div class=" pt-3 pe-2">
-                    <h2 class="text-white">Online food</h2>
-                </div><!-- logo -->
+ <!-- Navbar Container -->
+<div class="navbar-content bg-dark fixed-top container-fluid d-flex ">
+
+    <!-- Logo Section -->
+    <a class="logo" href="index.html">
+        <div class="pt-3 pe-2">
+            <h2 class="text-white">Online food</h2>
+        </div>
+    </a>
+
+    <!-- Navigation Links -->
+    <ul class="navbar-links justify-content-between list-unstyled px-lg-5 px-2 py-2 pt-4">
+        <li>
+            <a href="index.html#home-page">home</a>
+        </li>
+
+        <!-- Dropdown Menu for Categories -->
+        <li class="dropdown position-relative">
+            <a href="index.html#Categories-section" class="dropdown-link">
+                Categories
+                <i class="fa-solid fa-angle-down px-2 fs-6"></i>
             </a>
-            <ul class="navbar-links  justify-content-between   list-unstyled px-lg-5 px-2 py-2 pt-4">
-                <li>
-                    <a href="index.html">home</a>
-                </li>
-                <li class="dropdown  position-relative">
-                    <a href="index.html#Categories-section" class="dropdown-link">Categories<i class="fa-solid fa-angle-down px-2 fs-6"></i></a>
-                        <div class="dropdown-list bg-white position-absolute top-100 start-0 ">
-                            <div class="arrow-up position-absolute"></div>
-                             <a href="menu.html?category=pizza">Pizza</a>
-                             <a href="menu.html?category=pasta">Pasta</a>
-                             <a href="menu.html?category=chicken">Chicken</a>
-                             <a href="menu.html?category=fish">Fish</a>
-                             <a href="menu.html?category=seafood">Seafood</a>
-                             <a href="menu.html?category=lamb">Lamb</a>
-                        </div> <!-- dropdown-list -->
-                </li> 
-                 <li>
-                    <a href="menu.html">menu</a>
-                </li>
-                 <li>
-                    <a href="order.html">order</a>
-                </li>
-                <li>
-                    <a href="#">testimonial</a>
-                </li>
-                <li>
-                    <a href="contact.html">contact</a>
-                </li>
-            </ul> <!-- navbar-links -->
-            <div class="icons-list   ms-auto px-3 py-3">
-               <div class="d-flex">
-               <a href="cart.html">
-                  <div class="cart-numbers py-2  d-flex">
-                    <i class="fa-solid fa-cart-shopping text-white" title="Cart"></i>
-                    <span  id="cart-count" class=" px-1 bg-danger text-white rounded-1">1</span>
-                  </div>
-               </a>
-                <button id="button-navbar" class=" px-4 py-lg-2 mx-3">Sign in</button>
-                <div class="icons text-white mx-3 position-relative">
-                    <i class="fa-solid fa-bars lh-lg position-absolute "></i>
-                    <i class="fa-solid fa-xmark  position-absolute lh-lg "></i>
-                </div> <!-- icons -->
-                <div>
-                    <i id="list-navbar" class="fa-solid fa-bars px-3 bg-white text-black rounded-2  ms-3 lh-lg"></i>
-                </div>
-               </div>
-               <!-- ============================= side bar ==================================== -->
-               <div class="side-bar bg-dark position-fixed p-3 vh-100 top-0 ">
-                <div id="close-side-bar" class="position-absolute top-0 end-0 p-3">
-                    <i class="fa-solid fa-xmark closed-content p-2 rounded-2"></i>
-                </div>
-                  <a class="logo" href="index.html">
-                        <div class=" py-3 ">
-                            <h2 class="text-white">Online food</h2>
-                        </div><!-- logo -->
-                  </a>
-                <p class="my-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, ex. Sunt molestias commodi, asperiores quos itaque
-                     voluptatum minima quasi dolores animi eveniet provident ullam nostrum. Quod labore corr</p>
-                <div class="sidebar-links">
-                    <a href="#">Location</a>
-                    <a href="#">Email: onlinefood@gmail.com</a>
-                    <a href="#">+5455 8989 9990</a>
-                </div>
-                <div class="social-media py-2">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-linkedin"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                </div> <!-- social-media -->
-                <div class="w-100 text-center my-2 mt-4">
-                    <img  class="w-50" src="images/image1.png" alt="">
-                </div>
-                <div class="w-100 py-5">
-                    <button class=" px-4 py-2  w-100">Sign in</button>
-                </div>
-               </div> <!-- side-bar -->
+
+            <!-- Dropdown List -->
+            <div class="dropdown-list bg-white position-absolute top-100 start-0">
+                <div class="arrow-up position-absolute"></div>
+                <a href="menu.html?category=pizza">Pizza</a>
+                <a href="menu.html?category=pasta">Pasta</a>
+                <a href="menu.html?category=chicken">Chicken</a>
+                <a href="menu.html?category=fish">Fish</a>
+                <a href="menu.html?category=seafood">Seafood</a>
+                <a href="menu.html?category=lamb">Lamb</a>
             </div>
-        </div> <!-- navbar-content -->
+        </li>
+
+        <!-- Other Pages -->
+        <li><a href="menu.html">menu</a></li>
+        <li><a href="order.html">order</a></li>
+        <li><a href="index.html#testimonial-link">testimonial</a></li>
+        <li><a href="contact.html">contact</a></li>
+    </ul>
+
+    <!-- Right Side Icons (Cart, Sign-in, Sidebar Trigger) -->
+    <div class="icons-list ms-auto px-3 py-3">
+        <div class="d-flex">
+
+            <!-- Cart Icon -->
+            <a href="cart.html">
+                <div class="cart-numbers py-2 d-flex">
+                    <i class="fa-solid fa-cart-shopping text-white" title="Cart"></i>
+                    <span id="cart-count" class="px-1 bg-danger text-white rounded-1">1</span>
+                </div>
+            </a>
+
+            <!-- Sign-in Button -->
+            <a href="sign-in.html">
+                <button id="button-navbar" class="px-4 py-2 mx-3">Sign in</button>
+            </a>
+
+            <!-- Sidebar Toggle Icons (Bars and X) -->
+            <div class="icons text-white mx-3 position-relative">
+                <i class="fa-solid fa-bars lh-lg position-absolute"></i>
+                <i class="fa-solid fa-xmark position-absolute lh-lg"></i>
+            </div>
+
+            <!-- Sidebar Toggle Button -->
+            <div>
+                <i id="list-navbar" class="fa-solid fa-bars px-3 bg-white text-black rounded-2 ms-3 lh-lg"></i>
+            </div>
+        </div>
+
+        <!-- ============================= Side Bar ============================= -->
+        <div class="side-bar bg-dark position-fixed p-3 vh-100 top-0">
+
+            <!-- Close Button for Sidebar -->
+            <div id="close-side-bar" class="position-absolute top-0 end-0 p-3">
+                <i class="fa-solid fa-xmark closed-content p-2 rounded-2"></i>
+            </div>
+
+            <!-- Sidebar Logo -->
+            <a class="logo" href="index.html">
+                <div class="py-3">
+                    <h2 class="text-white">Online food</h2>
+                </div>
+            </a>
+
+            <!-- Sidebar Description -->
+            <p class="my-2">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, ex...
+            </p>
+
+            <!-- Sidebar Contact Info -->
+            <div class="sidebar-links">
+                <a href="#">Location</a>
+                <a href="#">Email: onlinefood@gmail.com</a>
+                <a href="#">+5455 8989 9990</a>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="social-media py-2">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+
+            <!-- Sidebar Image -->
+            <div class="w-100 text-center my-2 mt-4">
+                <img class="w-50" src="images/image1.png" alt="">
+            </div>
+
+            <!-- Sidebar Sign-in Button -->
+            <div class="w-100 py-5">
+                <a href="sign-in.html">
+                    <button class="px-4 py-2 w-100">Sign in</button>
+                </a>
+            </div>
+        </div>
+        <!-- ========================== End of Side Bar ========================== -->
+    </div>
+</div>
