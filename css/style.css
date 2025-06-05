@@ -17,6 +17,14 @@
     --star-color:#ffc107;
     --rotation: 0deg;
 }
+/*==================== scroll change style =====================*/
+::-webkit-scrollbar {
+  width: 10px; 
+}
+::-webkit-scrollbar-thumb {
+  background:var(--main-color);
+  border-radius: 6px;
+}
 /* ................................. general styling start .....................................................................*/
 body{
   overflow: hidden;
@@ -1037,6 +1045,9 @@ h5.show{
 }
 }
 @media screen and (max-width:500px){
+  .loading h2{
+    font-size: 2rem;
+  }
   .header-section{
     height: 80vh;
   }
