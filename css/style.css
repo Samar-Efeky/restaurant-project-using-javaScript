@@ -1,11 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-     scrollbar-width: thin;            /* thin أو auto أو none */
-  scrollbar-color:var(--main-color);
-}
 :root{
     --main-color:#dc3545;
     --black-color:black;
@@ -18,6 +11,13 @@
     --bg-section:#FFFCF3;
     --star-color:#ffc107;
     --rotation: 0deg;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     scrollbar-width: thin;            /* thin أو auto أو none */
+  scrollbar-color:var(--main-color) var(--white-color);
 }
 /*==================== scroll change style =====================*/
 ::-webkit-scrollbar {
