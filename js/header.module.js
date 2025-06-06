@@ -44,6 +44,8 @@ export const getAllRecipes = async (item) => {
 
     // Validate the response structure
     if (!data.recipes || !Array.isArray(data.recipes)) {
+        loading.classList.replace("d-flex", "d-none");
+        document.body.style.overflow = 'auto';
       throw new Error("No recipes data found");
     }
 
