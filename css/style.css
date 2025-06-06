@@ -3,6 +3,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+     scrollbar-width: thin;            /* thin أو auto أو none */
+  scrollbar-color:var(--main-color);
 }
 :root{
     --main-color:#dc3545;
