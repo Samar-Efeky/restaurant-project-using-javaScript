@@ -9,15 +9,6 @@ import { menuSection } from "./menu.module.js";
 import { displayCart } from "./cart.module.js";
 import { deliverySection } from './deliverySection.module.js';
 import { testimonial } from "./testimonial.module.js";
-
-//========================= PAGE LOADING =========================//
-// Remove loading animation once the page is fully loaded
-window.addEventListener('load', () => {
-  const loading = document.querySelector(".loading");
-  loading.classList.replace("d-flex", "d-none");
-  document.body.style.overflow = 'auto';
-});
-
 //========================= DOM READY =========================//
 document.addEventListener("DOMContentLoaded", () => {
   

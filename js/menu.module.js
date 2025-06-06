@@ -41,10 +41,15 @@ export function menuSection() {
   }
   // Fetch meals from Forkify API and cache them by category
   async function getAllMenu(query) {
+     const loading = document.querySelector(".loading");
+    loading.classList.replace("d-none", "d-flex");
     if (categoryCache[query]) return categoryCache[query];
 
     const res = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${query}`);
-    const data = await res.json();
+    const data = await res.json().finally(()=>{
+      loading.classList.replace("d-flex", "d-none");
+    document.body.style.overflow = 'auto';
+    });
     const recipes = data.recipes.map(recipe => ({
       ...recipe,
       price: Math.floor(Math.random() * (100 - 5 + 1)) + 5,   // Generate random price

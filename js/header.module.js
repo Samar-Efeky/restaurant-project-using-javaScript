@@ -20,6 +20,8 @@ const recipeCache = {};
  * processes and displays recipes.
  */
 export const getAllRecipes = async (item) => {
+   const loading = document.querySelector(".loading");
+    loading.classList.replace("d-none", "d-flex");
   try {
     // Use cached recipes if available
     if (recipeCache[item]) {
@@ -35,7 +37,10 @@ export const getAllRecipes = async (item) => {
       throw new Error(`API returned status ${res.status}`);
     }
 
-    const data = await res.json();
+    const data = await res.json().finally(()=>{
+      loading.classList.replace("d-flex", "d-none");
+    document.body.style.overflow = 'auto';
+    });
 
     // Validate the response structure
     if (!data.recipes || !Array.isArray(data.recipes)) {
